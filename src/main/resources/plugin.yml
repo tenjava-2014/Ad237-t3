@@ -1,0 +1,3 @@
+name: Ad237-t3
+main: com.tenjava.entries.Ad237.t3.TenJava
+version: '${project.version}'
