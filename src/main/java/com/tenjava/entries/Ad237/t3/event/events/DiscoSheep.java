@@ -1,6 +1,7 @@
 package com.tenjava.entries.Ad237.t3.event.events;
 
 import com.tenjava.entries.Ad237.t3.event.RandomEvent;
+import org.bukkit.DyeColor;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Sheep;
 import org.bukkit.event.EventHandler;
@@ -13,8 +14,8 @@ public class DiscoSheep extends RandomEvent {
 
     private ArrayList<UUID> discoSheep = new ArrayList<UUID>();
 
-    public DiscoSheep(boolean enabled) {
-        super("DiscoSheep", enabled, "Chance to spawn a special sheep", "that will change colors!");
+    public DiscoSheep(double chance, boolean enabled) {
+        super("DiscoSheep", chance, enabled, "Chance to spawn a special sheep", "that will change colors!");
     }
 
     @EventHandler
@@ -24,7 +25,33 @@ public class DiscoSheep extends RandomEvent {
         if(entity instanceof Sheep) {
             Sheep sheep = (Sheep) entity;
 
-
+            if(shouldHappen()) {
+                discoSheep.add(sheep.getUniqueId());
+            }
         }
+    }
+
+    public DyeColor getNextColor(Sheep sheep) {
+        DyeColor nextColor = null;
+
+        if(sheep.getColor() == null || sheep.getColor() == DyeColor.WHITE) {
+            nextColor = DyeColor.RED;
+        } else if(sheep.getColor() == DyeColor.RED) {
+            nextColor = DyeColor.GREEN;
+        } else if(sheep.getColor() == DyeColor.GREEN) {
+            nextColor = DyeColor.BLUE;
+        } else if(sheep.getColor() == DyeColor.BLUE) {
+            nextColor = DyeColor.YELLOW;
+        } else if(sheep.getColor() == DyeColor.YELLOW) {
+            nextColor = DyeColor.PURPLE;
+        } else if(sheep.getColor() == DyeColor.PURPLE) {
+            nextColor = DyeColor.PINK;
+        } else if(sheep.getColor() == DyeColor.PINK) {
+            nextColor = DyeColor.RED;
+        } else {
+            nextColor = DyeColor.RED;
+        }
+
+        return nextColor;
     }
 }
