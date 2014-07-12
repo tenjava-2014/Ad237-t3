@@ -1,5 +1,6 @@
 package com.tenjava.entries.Ad237.t3;
 
+import com.tenjava.entries.Ad237.t3.command.RandomEventsCommand;
 import com.tenjava.entries.Ad237.t3.event.RandomEvent;
 import com.tenjava.entries.Ad237.t3.event.events.DiscoSheep;
 import com.tenjava.entries.Ad237.t3.event.events.ExplodingRedstone;
@@ -18,6 +19,8 @@ public class RandomEvents extends JavaPlugin {
     public void onEnable() {
         instance = this;
         saveDefaultConfig();
+
+        getCommand("randomevents").setExecutor(new RandomEventsCommand(this));
 
         registerEvent(new DiscoSheep(getConfig().getDouble("disco-sheep.chance"), getConfig().getBoolean("disco-sheep.enabled")));
         registerEvent(new ExplodingRedstone(getConfig().getDouble("exploding-redstone.chance"), getConfig().getBoolean("exploding-redstone.enabled")));
