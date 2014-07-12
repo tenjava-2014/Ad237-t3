@@ -1,7 +1,10 @@
 package com.tenjava.entries.Ad237.t3.event.events;
 
 import com.tenjava.entries.Ad237.t3.event.RandomEvent;
+import com.tenjava.entries.Ad237.t3.utils.EntityUtils;
+import org.bukkit.Bukkit;
 import org.bukkit.DyeColor;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Sheep;
 import org.bukkit.event.EventHandler;
@@ -16,6 +19,17 @@ public class DiscoSheep extends RandomEvent {
 
     public DiscoSheep(double chance, boolean enabled) {
         super("DiscoSheep", chance, enabled, "Chance to spawn a special sheep", "that will change colors!");
+    }
+
+    public void updateSheep() {
+        for(UUID uuid : discoSheep) {
+            Entity entity = EntityUtils.getEntityByUUID(uuid);
+
+            if(entity != null && entity instanceof Sheep) {
+                Sheep sheep = (Sheep) entity;
+                sheep.setColor(getNextColor(sheep));
+            }
+        }
     }
 
     @EventHandler
