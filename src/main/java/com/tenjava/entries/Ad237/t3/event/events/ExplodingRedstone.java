@@ -16,7 +16,7 @@ public class ExplodingRedstone extends RandomEvent {
     @EventHandler
     public void onBreak(BlockBreakEvent event) {
         Block block = event.getBlock();
-        if(block.getType() == Material.REDSTONE_BLOCK) {
+        if(block.getType() == Material.REDSTONE_ORE) {
             Location loc = block.getLocation();
             loc.getWorld().createExplosion(loc, 1); //Small explosion.
         }
