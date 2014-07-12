@@ -29,7 +29,11 @@ public class RandomEventsCommand implements CommandExecutor {
         }
 
         if(args[0].equalsIgnoreCase("settings") || args[0].equalsIgnoreCase("events")) {
-            new SettingsMenu(plugin).showToPlayer(p);
+            if(p.hasPermission("randomevents.menu")) {
+                new SettingsMenu(plugin).showToPlayer(p);
+            } else {
+                p.sendMessage(ChatColor.RED + "No permission.");
+            }
         }
 
         return true;
