@@ -1,6 +1,7 @@
 package com.tenjava.entries.Ad237.t3;
 
 import com.tenjava.entries.Ad237.t3.event.RandomEvent;
+import com.tenjava.entries.Ad237.t3.event.events.DiscoSheep;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -15,6 +16,8 @@ public class RandomEvents extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
+
+        registerEvent(new DiscoSheep(getConfig().getDouble("disco-sheep.chance"), getConfig().getBoolean("disco-sheep.enabled")));
     }
 
     public static RandomEvents getInstance() {
