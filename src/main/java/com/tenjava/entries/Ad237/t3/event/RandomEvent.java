@@ -8,10 +8,10 @@ public abstract class RandomEvent implements Listener {
     private String[] description;
     private boolean enabled;
 
-    public RandomEvent(String name, String[] description, boolean enabled) {
+    public RandomEvent(String name, boolean enabled, String... description) {
         this.name = name;
-        this.description = description;
         this.enabled = enabled;
+        this.description = description;
     }
 
     public String getName() {
