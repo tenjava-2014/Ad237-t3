@@ -1,6 +1,7 @@
 package com.tenjava.entries.Ad237.t3.command;
 
 import com.tenjava.entries.Ad237.t3.RandomEvents;
+import com.tenjava.entries.Ad237.t3.utils.SettingsMenu;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -27,7 +28,9 @@ public class RandomEventsCommand implements CommandExecutor {
             return false;
         }
 
-
+        if(args[0].equalsIgnoreCase("settings") || args[0].equalsIgnoreCase("events")) {
+            new SettingsMenu(plugin).showToPlayer(p);
+        }
 
         return true;
     }
