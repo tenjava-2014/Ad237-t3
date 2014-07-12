@@ -124,13 +124,13 @@ public abstract class RandomEvent implements Listener {
         lore.add("");
 
         if(isEnabled()) {
-            lore.add(ChatColor.GOLD + "" + ChatColor.BOLD + "Shift click " + ChatColor.GRAY + " to " + ChatColor.RED +  ChatColor.BOLD + "Disable");
+            lore.add(ChatColor.GOLD + "" + ChatColor.BOLD + "Shift click" + ChatColor.GRAY + " to " + ChatColor.RED +  ChatColor.BOLD + "Disable");
         } else {
-            lore.add(ChatColor.GOLD + "" + ChatColor.BOLD + "Shift click " + ChatColor.GRAY + " to " + ChatColor.GREEN +  ChatColor.BOLD + "Enable");
+            lore.add(ChatColor.GOLD + "" + ChatColor.BOLD + "Shift click" + ChatColor.GRAY + " to " + ChatColor.GREEN +  ChatColor.BOLD + "Enable");
         }
 
-        lore.add(ChatColor.GOLD + "" + ChatColor.BOLD + "Left click " + ChatColor.GRAY + " to " + ChatColor.RED +  ChatColor.BOLD + "Decrease Chance");
-        lore.add(ChatColor.GOLD + "" + ChatColor.BOLD + "Right click " + ChatColor.GRAY + " to " + ChatColor.GREEN +  ChatColor.BOLD + "Increase Chance");
+        lore.add(ChatColor.GOLD + "" + ChatColor.BOLD + "Left click" + ChatColor.GRAY + " to " + ChatColor.RED +  ChatColor.BOLD + "Decrease Chance");
+        lore.add(ChatColor.GOLD + "" + ChatColor.BOLD + "Right click" + ChatColor.GRAY + " to " + ChatColor.GREEN +  ChatColor.BOLD + "Increase Chance");
 
         meta.setLore(lore);
         item.setItemMeta(meta);
