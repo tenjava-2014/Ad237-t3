@@ -25,11 +25,14 @@ Maven will download all required dependencies and build a ready-for-use plugin p
 
 ---------------------------------------
 
-Usage
+RandomEvents is a plugin that adds a few random events that can occur in the minecraft world.
+
+Setup
 -----
 
-1. Install plugin
-2. Do things with it
+You can change the name, description, chance, and material for each event in the config.
 
-<!-- Hi, Ad237! This is the default README for every ten.java submission. -->
-<!-- We encourage you to edit this README with some information about your submission – keep in mind you'll be scored on documentation! -->
+Commands
+--------
+
+- /randomevents settings - Opens a GUI to toggle events on or off and configure there chances. Permission: randomevents.menu
