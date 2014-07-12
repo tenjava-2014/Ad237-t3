@@ -15,7 +15,8 @@ public class SettingsMenu {
         inv = Bukkit.createInventory(null, 9, "RandomEvents");
 
         for(RandomEvent event : plugin.getRandomEvents()) {
-            ItemStack item;
+            ItemStack item = event.getItemstack();
+            inv.addItem(item);
         }
     }
 
