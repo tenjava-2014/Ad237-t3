@@ -11,7 +11,7 @@ public class TenJava extends JavaPlugin {
         instamce = this;
     }
 
-    public static TenJava getInstamce() {
+    public static TenJava getInstance() {
         return instamce;
     }
 }
