@@ -16,6 +16,7 @@ public class RandomEvents extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
+        saveDefaultConfig();
 
         registerEvent(new DiscoSheep(getConfig().getDouble("disco-sheep.chance"), getConfig().getBoolean("disco-sheep.enabled")));
     }
