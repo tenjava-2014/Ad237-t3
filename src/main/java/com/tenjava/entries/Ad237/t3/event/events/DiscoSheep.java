@@ -2,7 +2,6 @@ package com.tenjava.entries.Ad237.t3.event.events;
 
 import com.tenjava.entries.Ad237.t3.event.RandomEvent;
 import com.tenjava.entries.Ad237.t3.utils.EntityUtils;
-import org.bukkit.Bukkit;
 import org.bukkit.DyeColor;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
