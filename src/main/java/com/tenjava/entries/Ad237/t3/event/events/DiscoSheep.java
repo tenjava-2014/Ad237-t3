@@ -19,8 +19,8 @@ public class DiscoSheep extends RandomEvent {
 
     private ArrayList<UUID> discoSheep = new ArrayList<UUID>();
 
-    public DiscoSheep(double chance, boolean enabled) {
-        super("DiscoSheep", chance, enabled, "Chance to spawn a special sheep", "that will change colors!");
+    public DiscoSheep(RandomEvents plugin) {
+        super(plugin, "disco-sheep");
 
         new BukkitRunnable() {
             @Override

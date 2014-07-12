@@ -22,8 +22,8 @@ public class RandomEvents extends JavaPlugin {
 
         getCommand("randomevents").setExecutor(new RandomEventsCommand(this));
 
-        registerEvent(new DiscoSheep(getConfig().getDouble("disco-sheep.chance"), getConfig().getBoolean("disco-sheep.enabled")));
-        registerEvent(new ExplodingRedstone(getConfig().getDouble("exploding-redstone.chance"), getConfig().getBoolean("exploding-redstone.enabled")));
+        registerEvent(new DiscoSheep(this));
+        registerEvent(new ExplodingRedstone(this));
     }
 
     /**

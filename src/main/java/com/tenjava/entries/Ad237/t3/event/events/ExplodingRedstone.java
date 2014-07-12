@@ -1,5 +1,6 @@
 package com.tenjava.entries.Ad237.t3.event.events;
 
+import com.tenjava.entries.Ad237.t3.RandomEvents;
 import com.tenjava.entries.Ad237.t3.event.RandomEvent;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -9,8 +10,8 @@ import org.bukkit.event.block.BlockBreakEvent;
 
 public class ExplodingRedstone extends RandomEvent {
 
-    public ExplodingRedstone(double chance, boolean enabled) {
-        super("Exploding Redstone", chance, enabled, "Chance for redstone to EXPLODE when", "destroyed!");
+    public ExplodingRedstone(RandomEvents plugin) {
+        super(plugin, "exploding-redstone");
     }
 
     @EventHandler

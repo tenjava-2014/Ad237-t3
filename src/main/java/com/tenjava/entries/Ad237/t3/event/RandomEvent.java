@@ -1,23 +1,27 @@
 package com.tenjava.entries.Ad237.t3.event;
 
+import com.tenjava.entries.Ad237.t3.RandomEvents;
 import org.bukkit.event.Listener;
 
+import java.util.List;
 import java.util.Random;
 
 public abstract class RandomEvent implements Listener {
 
     private final static Random rand = new Random();
 
+    private String section;
     private String name;
     private double chance;
-    private String[] description;
+    private List<String> description;
     private boolean enabled;
 
-    public RandomEvent(String name, double chance, boolean enabled, String... description) {
-        this.name = name;
-        this.chance = chance;
-        this.enabled = enabled;
-        this.description = description;
+    public RandomEvent(RandomEvents plugin, String section) {
+        this.section = section;
+        this.name = plugin.getConfig().getString(section + ".name");
+        this.chance = plugin.getConfig().getDouble(section + ".chance");
+        this.enabled = plugin.getConfig().getBoolean(section + ".enabled");
+        this.description = plugin.getConfig().getStringList(section + ".description");
     }
 
     /**
@@ -30,11 +34,11 @@ public abstract class RandomEvent implements Listener {
     }
 
     /**
-     * Get the description of the event. Returned in array form to be used in the lore of items.
+     * Get the description of the event. Returned in a list to be used in the lore of items.
      *
      * @return The description.
      */
-    public String[] getDescription() {
+    public List<String> getDescription() {
         return description;
     }
 
