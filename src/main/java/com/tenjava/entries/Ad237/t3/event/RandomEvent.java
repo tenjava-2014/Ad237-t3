@@ -1,8 +1,13 @@
 package com.tenjava.entries.Ad237.t3.event;
 
 import com.tenjava.entries.Ad237.t3.RandomEvents;
+import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.event.Listener;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -15,12 +20,14 @@ public abstract class RandomEvent implements Listener {
     private double chance;
     private List<String> description;
     private boolean enabled;
+    private Material type;
 
     public RandomEvent(RandomEvents plugin, String section) {
         this.section = section;
         this.name = plugin.getConfig().getString(section + ".name");
         this.chance = plugin.getConfig().getDouble(section + ".chance");
         this.enabled = plugin.getConfig().getBoolean(section + ".enabled");
+        this.type = Material.getMaterial(plugin.getConfig().getString(section + ".material"));
         this.description = plugin.getConfig().getStringList(section + ".description");
     }
 
@@ -76,6 +83,30 @@ public abstract class RandomEvent implements Listener {
      */
     public boolean shouldHappen() {
         return rand.nextDouble() < getChance();
+    }
+
+    /**
+     * Generate an itemstack to represent the event.
+     *
+     * @return The itemstack.
+     */
+    public ItemStack getItemstack() {
+        ItemStack item = new ItemStack(type, 1);
+        ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName(getName());
+
+        ArrayList<String> lore = new ArrayList<String>();
+        for(String line : description) {
+            lore.add(ChatColor.GRAY + line);
+        }
+
+        lore.add("");
+        lore.add(ChatColor.GOLD + "Enabled: " + (isEnabled() ? ChatColor.GREEN + "True" : ChatColor.RED + "False"));
+        lore.add(ChatColor.GOLD + "Chance: " + ChatColor.GRAY + ((int) (getChance() * 100)) + "%");
+
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+        return item;
     }
 
 }
