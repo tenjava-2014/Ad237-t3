@@ -1,4 +1,4 @@
-package com.tenjava.entries.Ad237.t3.events;
+package com.tenjava.entries.Ad237.t3.event;
 
 import org.bukkit.event.Listener;
 
@@ -24,6 +24,10 @@ public abstract class RandomEvent implements Listener {
 
     public boolean isEnabled() {
         return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
 }
