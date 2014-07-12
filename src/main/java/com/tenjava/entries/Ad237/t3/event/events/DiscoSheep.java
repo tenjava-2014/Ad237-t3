@@ -9,6 +9,7 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Sheep;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.CreatureSpawnEvent;
+import org.bukkit.event.entity.EntityDeathEvent;
 
 import java.util.ArrayList;
 import java.util.UUID;
@@ -42,6 +43,15 @@ public class DiscoSheep extends RandomEvent {
             if(shouldHappen()) {
                 discoSheep.add(sheep.getUniqueId());
             }
+        }
+    }
+
+    @EventHandler
+    public void onDeath(EntityDeathEvent event) {
+        Entity entity = event.getEntity();
+
+        if(this.discoSheep.contains(entity.getUniqueId())) {
+            this.discoSheep.remove(entity.getUniqueId());
         }
     }
 
