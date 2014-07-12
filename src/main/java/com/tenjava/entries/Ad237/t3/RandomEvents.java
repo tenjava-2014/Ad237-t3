@@ -2,6 +2,7 @@ package com.tenjava.entries.Ad237.t3;
 
 import com.tenjava.entries.Ad237.t3.event.RandomEvent;
 import com.tenjava.entries.Ad237.t3.event.events.DiscoSheep;
+import com.tenjava.entries.Ad237.t3.event.events.ExplodingRedstone;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -19,6 +20,7 @@ public class RandomEvents extends JavaPlugin {
         saveDefaultConfig();
 
         registerEvent(new DiscoSheep(getConfig().getDouble("disco-sheep.chance"), getConfig().getBoolean("disco-sheep.enabled")));
+        registerEvent(new ExplodingRedstone(getConfig().getDouble("exploding-redstone.chance"), getConfig().getBoolean("exploding-redstone.enabled")));
     }
 
     public static RandomEvents getInstance() {

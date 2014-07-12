@@ -1,3 +1,6 @@
 disco-sheep:
     enabled: true
     chance: 0.05
+exploding-redstone:
+    enabled: true
+    chance: 0.05
