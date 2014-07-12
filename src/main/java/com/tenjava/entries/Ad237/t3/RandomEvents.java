@@ -1,6 +1,7 @@
 package com.tenjava.entries.Ad237.t3;
 
 import com.tenjava.entries.Ad237.t3.event.RandomEvent;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
@@ -31,5 +32,10 @@ public class RandomEvents extends JavaPlugin {
             }
         }
         return null;
+    }
+
+    public void registerEvent(RandomEvent event) {
+        randomEvents.add(event);
+        Bukkit.getPluginManager().registerEvents(event, this);
     }
 }
