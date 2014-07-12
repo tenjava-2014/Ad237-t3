@@ -1,6 +1,17 @@
 disco-sheep:
+    name: 'Disco Sheep'
     enabled: true
     chance: 0.05
+    material: 'WOOL'
+    description:
+        - 'Chance to spawn sheep that'
+        - 'will randomly change color!'
+
 exploding-redstone:
+    name: 'Exploding Redstone'
     enabled: true
     chance: 0.05
+    material: 'REDSTONE'
+    description:
+        - 'Chance for redstone to'
+        - 'explode when mined!'
