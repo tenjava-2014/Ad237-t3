@@ -23,14 +23,30 @@ public class RandomEvents extends JavaPlugin {
         registerEvent(new ExplodingRedstone(getConfig().getDouble("exploding-redstone.chance"), getConfig().getBoolean("exploding-redstone.enabled")));
     }
 
+    /**
+     * Get an instance of the plugin.
+     *
+     * @return An instance of the plugin.
+     */
     public static RandomEvents getInstance() {
         return instance;
     }
 
+    /**
+     * Get a list of registered random events.
+     *
+     * @return A list of random events.
+     */
     public ArrayList<RandomEvent> getRandomEvents() {
         return randomEvents;
     }
 
+    /**
+     * Get an event by name.
+     *
+     * @param name Name of the event.
+     * @return The event.
+     */
     public RandomEvent getRandomEvent(String name) {
         for(RandomEvent event : getRandomEvents()) {
             if(event.getName().equalsIgnoreCase(name)) {
@@ -40,6 +56,11 @@ public class RandomEvents extends JavaPlugin {
         return null;
     }
 
+    /**
+     * Register a random event.
+     *
+     * @param event The event to register.
+     */
     public void registerEvent(RandomEvent event) {
         randomEvents.add(event);
         Bukkit.getPluginManager().registerEvents(event, this);
