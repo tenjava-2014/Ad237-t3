@@ -2,6 +2,7 @@ package com.tenjava.entries.Ad237.t3;
 
 import com.tenjava.entries.Ad237.t3.command.RandomEventsCommand;
 import com.tenjava.entries.Ad237.t3.event.RandomEvent;
+import com.tenjava.entries.Ad237.t3.event.events.ChestOfDiamond;
 import com.tenjava.entries.Ad237.t3.event.events.DiscoSheep;
 import com.tenjava.entries.Ad237.t3.event.events.ExplodingRedstone;
 import com.tenjava.entries.Ad237.t3.listeners.InventoryListener;
@@ -25,6 +26,7 @@ public class RandomEvents extends JavaPlugin {
 
         registerEvent(new DiscoSheep(this));
         registerEvent(new ExplodingRedstone(this));
+        registerEvent(new ChestOfDiamond(this));
 
         getServer().getPluginManager().registerEvents(new InventoryListener(this), this);
     }
