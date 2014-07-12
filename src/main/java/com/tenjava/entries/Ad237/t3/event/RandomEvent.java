@@ -15,6 +15,8 @@ public abstract class RandomEvent implements Listener {
 
     private final static Random rand = new Random();
 
+    private RandomEvents plugin;
+
     private String section;
     private String name;
     private double chance;
@@ -23,6 +25,7 @@ public abstract class RandomEvent implements Listener {
     private Material type;
 
     public RandomEvent(RandomEvents plugin, String section) {
+        this.plugin = plugin;
         this.section = section;
         this.name = plugin.getConfig().getString(section + ".name");
         this.chance = plugin.getConfig().getDouble(section + ".chance");
@@ -65,6 +68,9 @@ public abstract class RandomEvent implements Listener {
      */
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+
+        this.plugin.getConfig().set(section + ".enabled", enabled);
+        this.plugin.saveConfig();
     }
 
     /**
@@ -74,6 +80,18 @@ public abstract class RandomEvent implements Listener {
      */
     public double getChance() {
         return chance;
+    }
+
+    /**
+     * Set the chance of the event occuring.
+     *
+     * @param chance The chance.
+     */
+    public void setChance(double chance) {
+        this.chance = chance;
+
+        this.plugin.getConfig().set(section + ".chance", chance);
+        this.plugin.saveConfig();
     }
 
     /**
