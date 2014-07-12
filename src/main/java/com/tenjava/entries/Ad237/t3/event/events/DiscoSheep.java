@@ -45,6 +45,10 @@ public class DiscoSheep extends RandomEvent {
 
     @EventHandler
     public void onSpawn(CreatureSpawnEvent event) {
+        if(!isEnabled()) {
+            return;
+        }
+
         LivingEntity entity = event.getEntity();
 
         if(entity instanceof Sheep) {

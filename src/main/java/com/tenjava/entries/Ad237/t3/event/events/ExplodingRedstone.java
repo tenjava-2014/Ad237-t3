@@ -15,6 +15,10 @@ public class ExplodingRedstone extends RandomEvent {
 
     @EventHandler
     public void onBreak(BlockBreakEvent event) {
+        if(!isEnabled()) {
+            return;
+        }
+        
         Block block = event.getBlock();
         if(block.getType() == Material.REDSTONE_ORE || block.getType() == Material.GLOWING_REDSTONE_ORE) {
             if(shouldHappen()) {
