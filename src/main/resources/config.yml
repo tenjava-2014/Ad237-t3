@@ -24,3 +24,12 @@ chest-of-diamonds:
     description:
         - 'Chance for a chest to spawn'
         - 'when mining diamonds!'
+
+random-name:
+    name: "Random Name"
+    enabled: true
+    chance: 0.05
+    material: 'NAME_TAG'
+    description:
+        - 'Generate a random name when'
+        - 'a mob spawns!'

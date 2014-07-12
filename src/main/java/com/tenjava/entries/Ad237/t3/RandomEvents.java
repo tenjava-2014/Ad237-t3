@@ -5,6 +5,7 @@ import com.tenjava.entries.Ad237.t3.event.RandomEvent;
 import com.tenjava.entries.Ad237.t3.event.events.ChestOfDiamond;
 import com.tenjava.entries.Ad237.t3.event.events.DiscoSheep;
 import com.tenjava.entries.Ad237.t3.event.events.ExplodingRedstone;
+import com.tenjava.entries.Ad237.t3.event.events.RandomName;
 import com.tenjava.entries.Ad237.t3.listeners.InventoryListener;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -27,6 +28,7 @@ public class RandomEvents extends JavaPlugin {
         registerEvent(new DiscoSheep(this));
         registerEvent(new ExplodingRedstone(this));
         registerEvent(new ChestOfDiamond(this));
+        registerEvent(new RandomName(this));
 
         getServer().getPluginManager().registerEvents(new InventoryListener(this), this);
     }
